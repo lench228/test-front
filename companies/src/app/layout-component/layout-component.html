@@ -1,0 +1,15 @@
+<main>
+  <header>
+    @for (navRoute of navRoutes; track navRoute.label) {
+      <a
+        [routerLink]="navRoute.routerLink"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: false }">
+        {{ navRoute.label }}
+      </a>
+    }
+  </header>
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
+</main>
