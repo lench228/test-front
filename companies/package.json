@@ -8,13 +8,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:companies": "node dist/companies/server/server.mjs",
-
     "lint": "ng lint",
     "lint:ts:fix": "eslint --fix",
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "prepare": "husky",
     "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\""
-
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
@@ -58,19 +56,19 @@
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",
+    "angular-eslint": "20.5.1",
+    "eslint": "^9.38.0",
+    "husky": "^9.1.7",
     "jasmine-core": "~5.9.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.9.2",
-
-    "eslint": "^9.39.1",
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
     "stylelint": "^16.25.0",
-    "husky": "^9.1.7"
+    "typescript": "~5.9.2",
+    "typescript-eslint": "8.46.2"
   }
 }
-
