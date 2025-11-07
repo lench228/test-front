@@ -1,0 +1,32 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+companies/dist
+/tmp
+/out-tsc
+/bazel-out
+
+.idea
+
+# Node
+companies/node_modules
+
+# Visual Studio Code
+companies/.vscode/*
+
+companies/.history/*
+
+# Miscellaneous
+companies/.angular/cache
+companies/.sass-cache/
+companies/connect.lock
+companies/coverage
+companies/libpeerconnection.log
+companies/testem.log
+companies/typings
+companies/__screenshots__/
+
+# System files
+companies/.DS_Store
+companies/Thumbs.db
+

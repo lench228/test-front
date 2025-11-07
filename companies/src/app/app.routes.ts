@@ -1,18 +1,12 @@
 import { Routes } from '@angular/router';
-import { LayoutComponent } from './layout-component/layout-component';
-import { CompanyList } from './company-list/company-list';
-import { CompanyDetail } from './company-detail/company-detail';
-import { CompanyYandexMap } from './company-yandex-map/company-yandex-map';
+
+import { LayoutComponent } from './core/components';
 
 export const ROUTE_PATHS = {
   list: 'list',
   details: 'detail/:id',
   map: 'map',
 } as const;
-
-export type RouteParams = {
-  id: string;
-};
 
 export const routes: Routes = [
   {
@@ -26,17 +20,19 @@ export const routes: Routes = [
       },
       {
         path: ROUTE_PATHS.list,
-        component: CompanyList,
+        loadComponent: () => import('./features/get-companies-list').then((m) => m.CompanyList),
         title: 'Список компаний',
       },
       {
         path: ROUTE_PATHS.details,
-        component: CompanyDetail,
+        loadComponent: () =>
+          import('./features/get-company-detail/components').then((m) => m.CompanyDetail),
         title: 'Детали компании',
       },
       {
         path: ROUTE_PATHS.map,
-        component: CompanyYandexMap,
+        loadComponent: () =>
+          import('./features/get-yandex-map/components').then((m) => m.CompanyYandexMap),
         title: 'Карта компаний',
       },
     ],

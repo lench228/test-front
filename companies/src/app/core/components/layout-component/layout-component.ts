@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { NAV_ROUTES } from '../app.routes';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NAV_ROUTES } from '../../../app.routes';
 
 @Component({
   selector: 'app-layout-component',
