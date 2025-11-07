@@ -1,12 +1,7 @@
 <main>
   <header>
     @for (navRoute of navRoutes; track navRoute.label) {
-      <a
-        [routerLink]="navRoute.routerLink"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: false }">
-        {{ navRoute.label }}
-      </a>
+      <app-nav-link [navRoute]="navRoute"/>
     }
   </header>
   <section class="content">

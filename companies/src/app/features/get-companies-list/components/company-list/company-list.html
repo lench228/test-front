@@ -1,5 +1,11 @@
-<p>company-list works!</p>
 
-@for (item of  list; track item.id) {
-  ite.id
-}
+Страница {{page()}}
+Всего страниц {{ totalPages }}
+Всего элементов {{ size }}
+
+<ul>
+  @for (item of companies(); track item.id) {
+    <li>{{ item.business_name }}</li>
+  }
+</ul>
+
