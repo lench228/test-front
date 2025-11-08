@@ -8,9 +8,8 @@ describe('CompanyYandexMap', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CompanyYandexMap]
-    })
-    .compileComponents();
+      imports: [CompanyYandexMap],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CompanyYandexMap);
     component = fixture.componentInstance;

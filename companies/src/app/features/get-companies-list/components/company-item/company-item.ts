@@ -10,5 +10,5 @@ import { Chip, NavLink, Typography } from '@/shared';
   styleUrl: './company-item.scss',
 })
 export class CompanyItem {
-  @Input() company!: Companффывy;
+  @Input() company!: Company;
 }

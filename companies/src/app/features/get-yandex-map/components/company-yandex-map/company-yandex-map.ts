@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './company-yandex-map.html',
   styleUrl: './company-yandex-map.scss',
 })
-export class CompanyYandexMap {
-
-}
+export class CompanyYandexMap {}
