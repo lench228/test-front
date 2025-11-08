@@ -1,21 +1,21 @@
 <section class="company-card">
-  <img [src]="company.logo"  [alt]="company.business_name" width="140px" height="140px"/>
+  <img [src]="company.logo" [alt]="company.business_name" width="140px" height="140px" />
 
   <main class="company-card__content">
-    <app-typography variant="h2" [text]="company.suffix | companyName:company.business_name"/>
+    <app-typography variant="h2" [text]="company.suffix | companyName: company.business_name" />
     <ul class="company-card__chips">
       <li>
         <app-chip [text]="company.industry" />
       </li>
       <li>
-      <app-chip [text]="company.type" />
+        <app-chip [text]="company.type" />
       </li>
     </ul>
   </main>
 
   <div class="company-card__button">
-    <app-nav-link [navRoute]="{label: 'Подробнее →', routerLink: ['/detail/',  `${company.id}`]}"/>
+    <app-nav-link
+      [navRoute]="{ label: 'Подробнее →', routerLink: ['/detail/', `${company.id}`] }"
+    />
   </div>
-
 </section>
-
