@@ -4,19 +4,23 @@
   --space-m: calc(var(--space-s) * 2);
   --space-l: calc(var(--space-s) * 3);
   --space-xl: calc(var(--space-s) * 4);
+
   --border-radius: 16px;
+  --border-radius-xl: calc(var(--border-radius) * 2);
 
   // Цвета
   --text-color: #21272a;
   --light-text-color: #fff;
+
   --bg-color: #f4f9fd;
-  --light-background-color: #fff;
-  --modal-backdrop-color: #c5daf4c7;
+
   --primary-color: #408dff;
-  --light-primary-color: #a6c8ff;
+
+  --chip-background-color: rgba(166, 200, 255, 0.2);
+
   --secondary-color: #878d96;
   --border-color: #e0e0e0;
-  --tab-with-status-background-color: #fff;
+
   --succes-color: #1b5e20;
   --light-succes-color: #dff4dd;
   --warning-color: #997404;

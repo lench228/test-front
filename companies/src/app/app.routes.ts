@@ -20,19 +20,19 @@ export const routes: Routes = [
       },
       {
         path: ROUTE_PATHS.list,
-        loadComponent: () => import('./features/get-companies-list').then((m) => m.CompanyList),
+        loadComponent: () => import('@/features/get-companies-list').then((m) => m.CompanyList),
         title: 'Список компаний',
       },
       {
         path: ROUTE_PATHS.details,
         loadComponent: () =>
-          import('./features/get-company-detail/components').then((m) => m.CompanyDetail),
+          import('@/features/get-company-detail/components').then((m) => m.CompanyDetail),
         title: 'Детали компании',
       },
       {
         path: ROUTE_PATHS.map,
         loadComponent: () =>
-          import('./features/get-yandex-map/components').then((m) => m.CompanyYandexMap),
+          import('@/features/get-yandex-map/components').then((m) => m.CompanyYandexMap),
         title: 'Карта компаний',
       },
     ],

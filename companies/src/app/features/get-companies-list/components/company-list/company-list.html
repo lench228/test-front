@@ -1,11 +1,13 @@
 
-Страница {{page()}}
-Всего страниц {{ totalPages }}
-Всего элементов {{ size }}
-
-<ul>
-  @for (item of companies(); track item.id) {
-    <li>{{ item.business_name }}</li>
+<ul class="companies">
+  @for (company of companies(); track company.id) {
+    <li>
+      <app-company-item  [company]="company"
+      />
+    </li>
   }
 </ul>
+
+
+
 

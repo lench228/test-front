@@ -1,10 +1,17 @@
-<main>
-  <header>
-    @for (navRoute of navRoutes; track navRoute.label) {
-      <app-nav-link [navRoute]="navRoute"/>
-    }
+
+
+<div class="layout">
+  <header style="position: sticky;">
+    <nav class="navigation">
+      @for (navRoute of navRoutes; track navRoute.label) {
+        <app-nav-link [navRoute]="navRoute"/>
+      }
+    </nav>
   </header>
-  <section class="content">
-    <router-outlet></router-outlet>
-  </section>
-</main>
+
+  <main class="main">
+    <router-outlet />
+  </main>
+
+</div>
+

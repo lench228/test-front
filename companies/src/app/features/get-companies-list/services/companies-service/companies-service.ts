@@ -2,8 +2,8 @@ import { inject, Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { ApiService } from '../../../../core/services';
-import { Company, CompaniesResponse, CompaniesRequest } from '../../types';
+import { ApiService } from '@/core/services';
+import { Company, CompaniesResponse, CompaniesRequest } from '../../interfaces';
 
 @Injectable({
   providedIn: 'root',

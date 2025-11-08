@@ -1,0 +1,8 @@
+<button
+  [type]="type"
+  [disabled]="disabled || loading"
+  (click)="handleClick($event)"
+  class="button">
+  <ng-content></ng-content>
+  {{ text }}
+</button>

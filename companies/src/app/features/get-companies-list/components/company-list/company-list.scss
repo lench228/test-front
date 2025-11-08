@@ -1,0 +1,17 @@
+.companies{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 100%;
+
+  justify-content: center;
+  gap: var(--space-xl);
+
+  padding: var(--space-xl);
+
+  @media (max-width: 1280px) {
+    grid-template-columns: 1fr;
+    padding: var(--space-l);
+  }
+}
+
