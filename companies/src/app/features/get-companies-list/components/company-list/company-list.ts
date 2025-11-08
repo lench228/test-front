@@ -1,28 +1,22 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
-import { Company, CompaniesResponse } from '../../interfaces';
-import { CompaniesService } from '../../services';
+import { Component, inject, OnInit } from '@angular/core';
+
 import { CompanyItem } from '@/features/get-companies-list/components/company-item/company-item';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
+import { CompaniesService, iCompany } from '@/core';
 
 @Component({
   selector: 'app-company-list',
-  imports: [CompanyItem],
+  imports: [CompanyItem, AsyncPipe],
   templateUrl: './company-list.html',
   styleUrl: './company-list.scss',
 })
 export class CompanyList implements OnInit {
   private service = inject(CompaniesService);
 
-  protected companies = signal<Company[]>([]);
+  protected companies$!: Observable<iCompany[]>;
 
   ngOnInit() {
-    this.loadCompanies();
-  }
-
-  private loadCompanies() {
-    this.service.getCompanies({}).subscribe({
-      next: (response: CompaniesResponse) => {
-        this.companies.set(response.data);
-      },
-    });
+    this.companies$ = this.service.getCompanies({});
   }
 }

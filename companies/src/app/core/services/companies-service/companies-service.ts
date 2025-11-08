@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ApiService } from '@/core/services';
-import { Company, CompaniesResponse, CompaniesRequest } from '../../interfaces';
+import { iCompaniesRequest, iCompaniesResponse, iCompany } from '@/core';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ import { Company, CompaniesResponse, CompaniesRequest } from '../../interfaces';
 export class CompaniesService {
   private ApiService = inject(ApiService);
 
-  public getCompanies(params: CompaniesRequest): Observable<CompaniesResponse> {
+  public getCompanies(params: iCompaniesRequest): Observable<iCompany[]> {
     let httpParams = new HttpParams();
 
     // @todo в lib
@@ -21,11 +21,12 @@ export class CompaniesService {
       }
     });
 
-    return this.ApiService.get<CompaniesResponse>('/companies', httpParams);
+    return this.ApiService.get<iCompaniesResponse>('/companies', httpParams).pipe(
+      map((item) => item.data),
+    );
   }
 
-  // @todo
-  public getCompanyById(id: string): Observable<Company> {
-    return this.ApiService.get<Company>(`/companies/${id}`);
+  public getCompanyById(id: string): Observable<iCompany> {
+    return this.ApiService.get<iCompany>(`/companies/${id}`);
   }
 }

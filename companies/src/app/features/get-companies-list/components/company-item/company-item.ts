@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { Company } from '@/features/get-companies-list/interfaces';
-import { CompanyNamePipe } from '@/shared/pipes/company-name-pipe-pipe';
-import { Chip, NavLink, Typography } from '@/shared';
+import { iCompany } from '@/core';
+
+import { Chip, CompanyLogo, NavLink, Typography, CompanyNamePipe } from '@/shared';
 
 @Component({
   selector: 'app-company-item',
-  imports: [CompanyNamePipe, Typography, NavLink, Chip],
+  imports: [CompanyNamePipe, Typography, NavLink, Chip, CompanyLogo],
   templateUrl: './company-item.html',
   styleUrl: './company-item.scss',
 })
 export class CompanyItem {
-  @Input() company!: Company;
+  @Input() company!: iCompany;
 }

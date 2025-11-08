@@ -1,0 +1,58 @@
+.company-detail{
+  display: flex;
+  height: 100%;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--bg-color);
+
+
+
+  &__card{
+    padding: var(--space-l);
+    border-radius: var(--border-radius-xl);
+    background-color: var(--light-text-color);
+    box-shadow: var(--card-shadow);
+
+    width: 800px;
+
+    &-absolute{
+      position: absolute;
+    }
+
+    &-relative{
+      position: relative;
+      top: -90px;
+      right: -180px;
+
+    }
+  }
+
+  &__header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  &__columns{
+    display: flex;
+    gap: var(--space-l);
+    flex-direction: column;
+
+
+  }
+
+  &__column{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+
+
+}
+

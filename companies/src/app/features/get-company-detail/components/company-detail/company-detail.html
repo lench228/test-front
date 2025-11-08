@@ -1,1 +1,36 @@
-<p>company-detail works!</p>
+@let company = company$ | async;
+
+<section class="company-detail">
+  @if (company) {
+    <div class="company-detail__card company-detail__card-relative">
+      <header class="company-detail__header">
+        <app-typography variant="h1" [text]="company.suffix | companyName: company.business_name" />
+        <app-company-logo [src]="company.logo" [alt]="company.business_name"></app-company-logo>
+      </header>
+    </div>
+
+    <div class="company-detail__card company-detail__card-absolute">
+      <ul class="company-detail__columns">
+        <li class="company-detail__column">
+          <app-typography variant="subtitle" text="Сфера деятельности: " />
+          <app-typography variant="subtitle" [text]="company.industry" />
+        </li>
+
+        <li class="company-detail__column">
+          <app-typography variant="subtitle" text="Слоган: " />
+          <app-typography variant="subtitle" [text]="company.catch_phrase" />
+        </li>
+        <li class="company-detail__column">
+          <app-typography variant="subtitle" text="Номер телефона: " />
+          <app-typography variant="subtitle" [text]="company.phone_number" />
+        </li>
+        <li class="company-detail__column">
+          <app-typography variant="subtitle" text="Адрес: " />
+          <app-typography variant="subtitle" [text]="company.full_address" />
+        </li>
+      </ul>
+    </div>
+  } @else {
+    <app-typography text="404" variant="h2" />
+  }
+</section>

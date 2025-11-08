@@ -1,21 +1,29 @@
 
 .layout {
   background-color: var(--bg-color);
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 
+  display: flex;
+  flex-direction: column;
 
   .navigation {
     padding: var(--space-l);
     background-color: var(--light-text-color);
 
+    position: sticky;
+    top: 0;
 
     display: flex;
     justify-content: center;
     gap: var(--space-l);
-    position: sticky;
-
 
     border-bottom: 1px solid var(--border-color);
+  }
+
+  .main{
+    overflow-y: auto;
+    height: 100%;
   }
 
 }

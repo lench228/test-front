@@ -10,16 +10,12 @@
     "serve:ssr:companies": "node dist/companies/server/server.mjs",
     "lint": "ng lint",
     "lint:ts:fix": "eslint --fix",
-    "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "prettier": "npx prettier --write \"**/*.{ts,html,json}\""
   },
   "lint-staged": {
     "**/*.{ts}": [
       "npm run prettier",
       "npm run lint:ts:fix"
-    ],
-    "**/*.scss": [
-      "npm run lint:scss:fix"
     ]
   },
   "prettier": {
@@ -49,6 +45,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular-eslint/template-parser": "^20.5.1",
     "@angular/build": "^20.3.9",
     "@angular/cli": "^20.3.9",
     "@angular/compiler-cli": "^20.3.0",
@@ -66,6 +63,7 @@
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
     "stylelint": "^16.25.0",
+    "stylelint-config-recommended": "^17.0.0",
     "typescript": "~5.9.2",
     "typescript-eslint": "8.46.2"
   }

@@ -3,17 +3,17 @@
   display: flex;
 
 
-  gap: var(--space-xl);
+  gap: var(--space-m);
   padding: var(--space-l);
   border-radius: var(--border-radius);
   background-color: var(--light-text-color);
-  box-shadow: 1px 2px 10px var(--secondary-color);
+  box-shadow: var(--card-shadow);
 
-  .company-card__header{}
 
   .company-card__content{
 
-    padding: var(--space-m) var(--space-l);
+    max-width: 400px;
+    padding: var(--space-m) var(--space-s);
     display: flex;
     flex-direction: column;
 
