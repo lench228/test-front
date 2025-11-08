@@ -30,3 +30,4 @@ companies/__screenshots__/
 companies/.DS_Store
 companies/Thumbs.db
 
+node_modules
