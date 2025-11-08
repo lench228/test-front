@@ -1,0 +1,14 @@
+@switch (variant){
+  @case ('h1'){
+    <h1 class="base" [class]="variant">{{text}}</h1>
+  }
+  @case ('h2'){
+    <h2 class="base" [class]="variant">{{text}}</h2>
+  }
+  @case ('h3'){
+    <h3 class="base" [class]="variant">{{text}}</h3>
+  }
+  @default {
+    <p class="base" [class]="variant">{{text}}</p>
+  }
+}
