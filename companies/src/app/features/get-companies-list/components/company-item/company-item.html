@@ -1,5 +1,5 @@
 <section class="company-card">
-  <app-company-logo [src]="company.logo" [alt]="company.business_name" />
+  <app-company-logo [src]="company.logo" [alt]="'Логотип компании: ' + company.business_name" />
   <main class="company-card__content">
     <app-typography variant="h2" [text]="company.suffix | companyName: company.business_name" />
     <ul class="company-card__chips">

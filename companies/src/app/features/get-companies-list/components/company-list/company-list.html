@@ -1,3 +1,5 @@
+<app-controls />
+
 @if (companies$) {
   <ul class="companies">
     @for (company of companies$ | async; track company.id) {

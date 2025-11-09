@@ -1,0 +1,44 @@
+@if (typesOptions().length && industriesOptions().length) {
+  <form [formGroup]="filtersForm" class="filters-form" (ngSubmit)="onSubmit()">
+    <fieldset class="filters-form__field">
+      <input
+        class="filters-form__input"
+        id="company_name"
+        formControlName="query"
+        placeholder="Название"
+      />
+    </fieldset>
+
+    <fieldset class="filters-form__field">
+      <app-typography variant="body-2" for="company_type">Тип компании</app-typography>
+
+      <select class="filters-form__select" id="company_type" formControlName="company_type">
+        <option value="">Все</option>
+
+        @for (option of typesOptions(); track option) {
+          <option [value]="option">{{ option }}</option>
+        }
+      </select>
+    </fieldset>
+
+    <fieldset class="filters-form__field">
+      <app-typography
+        variant="label"
+        for="company_industry"
+        text="Вид деятельности"
+      ></app-typography>
+
+      <select class="filters-form__select" id="company_industry" formControlName="industry">
+        <option value="">Все</option>
+
+        @for (option of industriesOptions(); track option) {
+          <option [value]="option">{{ option }}</option>
+        }
+      </select>
+    </fieldset>
+
+    <app-button type="submit">Применить</app-button>
+  </form>
+} @else {
+  <app-typography>404</app-typography>
+}

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,16 +8,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './button.scss',
 })
 export class Button {
-  @Input() text = '';
   @Input() type: 'button' | 'submit' | 'reset' = 'button';
   @Input() disabled = false;
   @Input() loading = false;
+  @Input() variant: 'default' | 'small' = 'default';
 
-  @Output() buttonClick = new EventEmitter<MouseEvent>();
+  buttonClick = output();
 
-  protected handleClick(event: MouseEvent) {
+  handleClick() {
     if (!this.disabled && !this.loading) {
-      this.buttonClick.emit(event);
+      this.buttonClick.emit();
     }
   }
 }

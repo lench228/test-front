@@ -1,0 +1,28 @@
+.sorting{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+
+  &__select{
+    padding: var(--space-m);
+    border-radius: var(--border-radius);
+    width: 140px;
+
+    font-family: 'Geologica', sans-serif;
+    font-size: 16px;
+
+
+    & option {
+      font-family: 'Geologica', sans-serif;
+      font-size: 16px;
+    }
+  }
+
+  &__select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+}
+

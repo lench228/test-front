@@ -1,0 +1,39 @@
+.filters-form{
+
+  font-family: 'Geologica', sans-serif;
+  display: flex;
+  align-items: end;
+
+  gap: var(--space-s);
+
+  &__field{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    }
+
+  &__input{
+    padding: var(--space-m);
+    border-radius: var(--border-radius);
+    width: 400px;
+
+    font-family: 'Geologica', sans-serif;
+    font-size: 16px;
+
+  }
+
+
+  &__select{
+
+    padding: var(--space-m);
+    border-radius: var(--border-radius-s);
+    background: var(--light-text-color);
+
+    font-family: 'Geologica', sans-serif;
+    font-size: 16px;
+
+  }
+
+}
+

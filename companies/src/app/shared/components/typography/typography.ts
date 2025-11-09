@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-typography',
@@ -7,6 +7,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './typography.scss',
 })
 export class Typography {
-  @Input() variant: 'h1' | 'h2' | 'h3' | 'body' | 'body-2' | 'subtitle' = 'body';
+  @Input() variant: 'h1' | 'h2' | 'h3' | 'body' | 'body-2' | 'subtitle' | 'label' = 'body';
+  @Input() for = '';
   @Input() text = '';
+
+  protected getClassName = () => {
+    return `base ${this.variant}`;
+  };
 }

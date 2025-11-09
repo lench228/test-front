@@ -1,3 +1,6 @@
+// @todo перенести
+import { iFilterModel, iSortModel } from '@/features/get-companies-list/interfaces';
+
 export interface iCompany {
   id: number;
   uid: string;
@@ -25,17 +28,6 @@ export interface iCompaniesResponse {
   has_next: boolean;
 }
 
-export type SortingOrder = 'asc' | 'desc';
-export type SortBy = 'id' | 'name' | 'type' | 'industry';
-
-export interface iFilterModel {
-  query?: string;
-  industry?: string;
-  company_type?: string;
-  sort_by?: SortBy;
-  sort_order?: SortingOrder;
-}
-
-export interface iCompaniesRequest extends Omit<iFilterModel, 'query'> {
+export interface iCompaniesRequest extends Omit<iFilterModel, 'query'>, iSortModel {
   q?: iFilterModel['query'];
 }

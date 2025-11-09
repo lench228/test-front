@@ -6,6 +6,7 @@
   --space-xl: calc(var(--space-s) * 4);
 
   --border-radius: 16px;
+  --border-radius-s:  calc(var(--border-radius) / 2);
   --border-radius-xl: calc(var(--border-radius) * 2);
 
   // Цвета
@@ -15,18 +16,13 @@
   --bg-color: #f4f9fd;
 
   --primary-color: #408dff;
+  --light-primary-color: #4f96ff;
 
   --chip-background-color: rgba(166, 200, 255, 0.2);
 
   --secondary-color: #878d96;
   --border-color: #e0e0e0;
 
-  --succes-color: #1b5e20;
-  --light-succes-color: #dff4dd;
-  --warning-color: #997404;
-  --light-warning-color: #fff4d1;
-  --error-color: #b00020;
-  --light-error-color: #fdd;
 
   // Тень
 

@@ -12,14 +12,7 @@ export class CompaniesService {
   private ApiService = inject(ApiService);
 
   public getCompanies(params: iCompaniesRequest): Observable<iCompany[]> {
-    let httpParams = new HttpParams();
-
-    // @todo в lib
-    Object.entries(params).forEach(([key, value]) => {
-      if (value !== undefined && value !== null) {
-        httpParams = httpParams.set(key, value.toString());
-      }
-    });
+    const httpParams = this.createHttpParams(params);
 
     return this.ApiService.get<iCompaniesResponse>('/companies', httpParams).pipe(
       map((item) => item.data),
@@ -28,5 +21,17 @@ export class CompaniesService {
 
   public getCompanyById(id: string): Observable<iCompany> {
     return this.ApiService.get<iCompany>(`/companies/${id}`);
+  }
+
+  private createHttpParams(params: iCompaniesRequest) {
+    let httpParams = new HttpParams();
+
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        httpParams = httpParams.set(key, value.toString());
+      }
+    });
+
+    return httpParams;
   }
 }

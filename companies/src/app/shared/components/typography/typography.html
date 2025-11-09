@@ -1,14 +1,25 @@
 @switch (variant) {
   @case ('h1') {
-    <h1 class="base" [class]="variant">{{ text }}</h1>
+    <h1 [class]="getClassName()">
+      <ng-content>{{ text }}</ng-content>
+    </h1>
   }
   @case ('h2') {
-    <h2 class="base" [class]="variant">{{ text }}</h2>
+    <h2 [class]="getClassName()">
+      <ng-content>{{ text }}</ng-content>
+    </h2>
   }
   @case ('h3') {
-    <h3 class="base" [class]="variant">{{ text }}</h3>
+    <h3 [class]="getClassName()">
+      <ng-content>{{ text }}</ng-content>
+    </h3>
+  }
+  @case ('label') {
+    <label [for]="for" [class]="getClassName()">{{ text }}</label>
   }
   @default {
-    <p class="base" [class]="variant">{{ text }}</p>
+    <p [class]="getClassName()">
+      <ng-content>{{ text }}</ng-content>
+    </p>
   }
 }
