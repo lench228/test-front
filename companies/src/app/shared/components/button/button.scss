@@ -14,12 +14,17 @@
   color: var(--light-text-color);
   background-color: var(--primary-color);
 
-  &:hover {
+  &:disabled {
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+  }
+
+  &:hover:not([disabled]) {
     background-color: var(--light-primary-color);
     box-shadow: var(--button-shadow);
   }
 
-  &:active {
+  &:active:not([disabled]) {
     box-shadow: var(--button-shadow);
     border: 1px solid var(--primary-color);
   }

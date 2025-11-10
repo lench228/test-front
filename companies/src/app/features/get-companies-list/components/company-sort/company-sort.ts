@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-
-import { SortBy } from '@/features/get-companies-list/interfaces';
-import { SORTING_OPTIONS } from '@/features/get-companies-list/const';
-import { Button } from '@/shared/components/button/button';
-import { FiltersService } from '@/features/get-companies-list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Typography } from '@/shared';
+
+import { SORTING_OPTIONS } from '@/features/get-companies-list/const';
+import { FiltersService } from '@/features/get-companies-list';
+
+import { Typography, Button } from '@/shared';
+import { SortBy } from '@/core';
 
 @Component({
   selector: 'app-company-sort',
@@ -24,7 +24,6 @@ export class CompanySort {
 
   protected onSortChange(newSort: Event) {
     const { value } = newSort.target as HTMLSelectElement;
-
     this.filtersService.sortBy.set(value as SortBy);
   }
 

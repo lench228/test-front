@@ -1,6 +1,6 @@
-import { computed, inject, Injectable, Signal, signal } from '@angular/core';
-import { iFilterModel, SortBy, SortingOrder } from '@/features/get-companies-list/interfaces';
-import { ApiService, iCompaniesRequest, iCompany } from '@/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
+
+import { ApiService, iCompaniesRequest, iFilterModel, SortBy, SortingOrder } from '@/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,7 +11,6 @@ export class FiltersService {
 
   direction = signal<SortingOrder>('desc');
   sortBy = signal<SortBy | undefined>(undefined);
-
   filters = signal<iFilterModel>({
     query: '',
     industry: '',

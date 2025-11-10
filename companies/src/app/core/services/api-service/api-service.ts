@@ -17,7 +17,6 @@ export class ApiService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    console.error('API Error:', error);
     return throwError(() => new Error(error.error.message));
   }
 }

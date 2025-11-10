@@ -1,7 +1,7 @@
 <div class="sorting">
   <app-typography variant="label" text="Сортировать по:" for="company_type" />
 
-  <div>
+  <div class="sorting__controls">
     <select class="sorting__select" id="sort" (change)="onSortChange($event)">
       <option value="" style="display: none"></option>
 
@@ -10,8 +10,8 @@
       }
     </select>
 
-    <app-button variant="small" (buttonClick)="toggleDirection()">{{
-      getDirectionIcon()
-    }}</app-button>
+    <app-button variant="small" (buttonClick)="toggleDirection()">
+      {{ getDirectionIcon() }}
+    </app-button>
   </div>
 </div>

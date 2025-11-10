@@ -15,7 +15,7 @@
     <div class="company-detail__card company-detail__card-absolute">
       <ul class="company-detail__columns">
         <li class="company-detail__column">
-          <app-typography variant="subtitle">Сфера деятельности: </app-typography>
+          <app-typography variant="subtitle">Вид деятельности: </app-typography>
           <app-typography variant="subtitle">{{ company.industry }}</app-typography>
         </li>
 
@@ -34,6 +34,6 @@
       </ul>
     </div>
   } @else {
-    <app-typography variant="h2">404</app-typography>
+    <app-typography variant="h2" text="Загрузка ..."></app-typography>
   }
 </section>

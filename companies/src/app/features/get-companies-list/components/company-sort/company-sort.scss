@@ -2,7 +2,13 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  align-self: flex-end;
 
+  &__controls{
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+  }
 
   &__select{
     padding: var(--space-m);

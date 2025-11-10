@@ -1,13 +1,16 @@
-<app-controls />
+<section class="companies">
+  <app-controls />
+  @let companies = companies$ | async;
 
-@if (companies$) {
-  <ul class="companies">
-    @for (company of companies$ | async; track company.id) {
-      <li>
-        <app-company-item [company]="company" />
-      </li>
-    }
-  </ul>
-} @else {
-  <p>Загрузка...</p>
-}
+  @if (companies?.length) {
+    <ul class="companies__list">
+      @for (company of companies; track company.id) {
+        <li class="companies__item">
+          <app-company-item [company]="company" />
+        </li>
+      }
+    </ul>
+  } @else {
+    <app-typography variant="h1" text="Загрузка ..."></app-typography>
+  }
+</section>

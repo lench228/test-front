@@ -6,10 +6,6 @@
   align-items: center;
   justify-content: center;
 
-  background-color: var(--bg-color);
-
-
-
   &__card{
     padding: var(--space-l);
     border-radius: var(--border-radius-xl);
@@ -24,7 +20,7 @@
 
     &-relative{
       position: relative;
-      top: -90px;
+      top: -100px;
       right: -180px;
 
     }
@@ -42,17 +38,11 @@
     display: flex;
     gap: var(--space-l);
     flex-direction: column;
-
-
   }
 
   &__column{
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-
-
-
-
 }
 

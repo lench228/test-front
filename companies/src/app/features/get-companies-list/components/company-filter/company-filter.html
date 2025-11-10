@@ -1,5 +1,5 @@
 @if (typesOptions().length && industriesOptions().length) {
-  <form [formGroup]="filtersForm" class="filters-form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="filtersForm" class="filters-form">
     <fieldset class="filters-form__field">
       <input
         class="filters-form__input"
@@ -10,7 +10,7 @@
     </fieldset>
 
     <fieldset class="filters-form__field">
-      <app-typography variant="body-2" for="company_type">Тип компании</app-typography>
+      <app-typography variant="label" for="company_type" text="Тип компании"></app-typography>
 
       <select class="filters-form__select" id="company_type" formControlName="company_type">
         <option value="">Все</option>
@@ -37,8 +37,10 @@
       </select>
     </fieldset>
 
-    <app-button type="submit">Применить</app-button>
+    <app-button type="reset" [disabled]="filtersForm.pristine || formIsEmpty()" (click)="onReset()">
+      Сбросить фильтры
+    </app-button>
   </form>
 } @else {
-  <app-typography>404</app-typography>
+  <app-typography variant="h2" text="Загрузка ..."></app-typography>
 }

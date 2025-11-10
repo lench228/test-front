@@ -3,6 +3,7 @@ import { Typography } from '@/shared';
 import { FiltersService } from '@/features/get-companies-list';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Button } from '@/shared/components/button/button';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-company-filter',
@@ -22,12 +23,21 @@ export class CompanyFilter {
     company_type: new FormControl(''),
   });
 
-  onSubmit() {
-    this.filterService.updateFilters(this.filtersForm.value);
-  }
-
   constructor() {
     this.filterService.getIndustries().subscribe((data) => this.industriesOptions.set(data));
     this.filterService.getTypes().subscribe((data) => this.typesOptions.set(data));
+
+    this.filtersForm.valueChanges
+      .pipe(debounceTime(300))
+      .subscribe(() => this.filterService.updateFilters(this.filtersForm.value));
+  }
+
+  onReset() {
+    this.filtersForm.reset();
+  }
+
+  protected formIsEmpty() {
+    const { query, industry, company_type } = this.filtersForm.value;
+    return !industry && !company_type && !query;
   }
 }

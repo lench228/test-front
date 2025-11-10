@@ -2,3 +2,12 @@
   color: var(--primary-color);
 }
 
+.active{
+  color: var(--light-primary-color);
+  text-decoration: underline 2px;
+  cursor: default;
+}
+
+
+
+

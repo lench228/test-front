@@ -1,7 +1,7 @@
 .controls{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 
-  padding: var(--space-m);
 }
 
