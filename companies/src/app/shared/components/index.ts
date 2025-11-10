@@ -3,3 +3,4 @@ export * from './typography/typography';
 export * from './chip/chip';
 export * from './company-logo/company-logo';
 export * from './button/button';
+export * from './preloader/preloader';

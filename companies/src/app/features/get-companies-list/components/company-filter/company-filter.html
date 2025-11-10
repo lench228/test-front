@@ -1,4 +1,6 @@
-@if (typesOptions().length && industriesOptions().length) {
+@if (isLoading()) {
+  <app-preloader />
+} @else if (typesOptions().length && industriesOptions().length) {
   <form [formGroup]="filtersForm" class="filters-form">
     <fieldset class="filters-form__field">
       <input
@@ -42,5 +44,5 @@
     </app-button>
   </form>
 } @else {
-  <app-typography variant="h2" text="Загрузка ..."></app-typography>
+  <app-typography variant="h2" text="Нет данных"></app-typography>
 }

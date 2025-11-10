@@ -1,7 +1,9 @@
 @let company = company$ | async;
 
 <section class="company-detail">
-  @if (company) {
+  @if (isLoading()) {
+    <app-preloader />
+  } @else if (company) {
     <div class="company-detail__card company-detail__card-relative">
       <header class="company-detail__header">
         <app-typography variant="h1" [text]="company.suffix | companyName: company.business_name" />

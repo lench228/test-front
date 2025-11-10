@@ -11,7 +11,7 @@ import { iCompaniesRequest, iCompaniesResponse, iCompany } from '@/core';
 export class CompaniesService {
   private ApiService = inject(ApiService);
 
-  public getCompanies(params: iCompaniesRequest): Observable<iCompany[]> {
+  public getCompanies$(params: iCompaniesRequest): Observable<iCompany[]> {
     const httpParams = this.createHttpParams(params);
 
     return this.ApiService.get<iCompaniesResponse>('/companies', httpParams).pipe(
@@ -19,7 +19,7 @@ export class CompaniesService {
     );
   }
 
-  public getCompanyById(id: string): Observable<iCompany> {
+  public getCompanyById$(id: string): Observable<iCompany> {
     return this.ApiService.get<iCompany>(`/companies/${id}`);
   }
 

@@ -1,16 +1,25 @@
 <section class="companies">
   <app-controls />
-  @let companies = companies$ | async;
 
-  @if (companies?.length) {
-    <ul class="companies__list">
-      @for (company of companies; track company.id) {
-        <li class="companies__item">
-          <app-company-item [company]="company" />
-        </li>
-      }
-    </ul>
-  } @else {
-    <app-typography variant="h1" text="Загрузка ..."></app-typography>
-  }
+  <div class="companies__content">
+    @let companies = companies$ | async;
+
+    @if (isLoading()) {
+      <div class="companies__loading">
+        <app-preloader />
+      </div>
+    } @else if (companies?.length) {
+      <ul class="companies__list">
+        @for (company of companies; track company.id) {
+          <li class="companies__item">
+            <app-company-item [company]="company" />
+          </li>
+        }
+      </ul>
+    } @else {
+      <div class="companies__empty">
+        <app-typography variant="h1" text="Ничего не найдено"></app-typography>
+      </div>
+    }
+  </div>
 </section>

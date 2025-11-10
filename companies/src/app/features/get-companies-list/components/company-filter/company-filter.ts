@@ -1,13 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
-import { Typography } from '@/shared';
+import { Preloader, Typography } from '@/shared';
 import { FiltersService } from '@/features/get-companies-list';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Button } from '@/shared/components/button/button';
-import { debounceTime } from 'rxjs';
+import { debounceTime, combineLatest, finalize } from 'rxjs';
 
 @Component({
   selector: 'app-company-filter',
-  imports: [Typography, ReactiveFormsModule, Button],
+  imports: [Typography, ReactiveFormsModule, Button, Preloader],
   templateUrl: './company-filter.html',
   styleUrl: './company-filter.scss',
 })
@@ -16,6 +16,7 @@ export class CompanyFilter {
 
   industriesOptions = signal<string[]>([]);
   typesOptions = signal<string[]>([]);
+  isLoading = signal(true);
 
   filtersForm = new FormGroup({
     query: new FormControl(''),
@@ -24,12 +25,20 @@ export class CompanyFilter {
   });
 
   constructor() {
-    this.filterService.getIndustries().subscribe((data) => this.industriesOptions.set(data));
-    this.filterService.getTypes().subscribe((data) => this.typesOptions.set(data));
+    combineLatest([this.filterService.getIndustries(), this.filterService.getTypes()])
+      .pipe(
+        finalize(() => {
+          this.isLoading.set(false);
+        }),
+      )
+      .subscribe(([industries, types]) => {
+        this.industriesOptions.set(industries);
+        this.typesOptions.set(types);
+      });
 
-    this.filtersForm.valueChanges
-      .pipe(debounceTime(300))
-      .subscribe(() => this.filterService.updateFilters(this.filtersForm.value));
+    this.filtersForm.valueChanges.pipe(debounceTime(300)).subscribe(() => {
+      this.filterService.updateFilters(this.filtersForm.value);
+    });
   }
 
   onReset() {
